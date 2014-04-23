@@ -5,19 +5,55 @@
 <div class="container">
 <canvas id="bunny" style="border:1px solid #FFF;"></canvas>
 
+<audio id="myaudio">
+  <source src="http://stateofrelationships.com/wp-content/uploads/2014/04/owl.wav" type="audio/wav">
+</audio>
+
+<!-- <input type = "text" onkeypress = "toggleControls();" > -->
+
 </div>
 
+<body onkeypress="audioBun(event)">
 
 <!-- 	
 <img src="http://stateofrelationships.com/wp-content/uploads/2014/04/forest-for-macbook-15-inch.png" alt="background"/> -->
 
-
-	
-
-
 </body>
 
 <script>
+
+// var audio = document.getElementById("myaudio");
+
+var event = new Event("audioGo");
+
+event.which=0;
+
+function audioBun(event) {
+
+var key = (event) ? event.which : event.keyCode;
+if (String.fromCharCode(key)=="g"){
+
+	document.getElementById('myaudio').play();
+	console.log("Im in the audio function");
+
+}
+else if (String.fromCharCode(key)=="h"){
+
+	document.getElementById('myaudio').pause();
+	console.log("Im in the audio function");
+
+}
+
+}
+
+
+// function toggleControls(){
+// 	if(audio.hasAttribute("controls")){
+// 		audio.removeAttribute("controls")
+// 	} else {
+// 		audio.setAttribute("controls", "controls")
+// 	}	
+// }
 
 
 var images = [];
