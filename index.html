@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<body>
+
+<div class="container">
+<canvas id="bunny" style="border:1px solid #FFF;"></canvas>
+
+</div>
+
+
+<!-- 	
+<img src="http://stateofrelationships.com/wp-content/uploads/2014/04/forest-for-macbook-15-inch.png" alt="background"/> -->
+
+
+	
+
+
+</body>
+
+<script>
+
+
+var images = [];
+var imageObj = 0;
+
+var init = function() {
+	console.log("init");
+
+	for(var i = 1; i < 3; i++){
+		imageObj = new Image();
+		imageObj.src = "img/"+i+".png";
+		images.push(imageObj);
+		console.log(imageObj);
+		console.log(images);
+
+		}		
+	
+};
+
+var bool = false;
+
+window.onclick = function() {
+
+	var img;
+	var xpos = 1200;
+	var ypos = 500;
+
+	function switchBun(){
+		bool = !bool;
+
+		var mycanvas = document.getElementById('bunny');
+		var ctx = mycanvas.getContext('2d');
+		mycanvas.width = 1280;
+		mycanvas.height = 747;
+		ctx.clearRect(0,0,mycanvas.width, mycanvas.height);
+
+
+		for(var i=0; i < images.length; i++){
+
+			if (bool == false){
+				img = 0;
+				xpos += -10;		
+			}
+			else if (bool == true){
+				img = 1;
+				xpos += -10;
+			}	
+		}
+
+		ctx.drawImage(images[img], xpos, ypos);
+	}
+
+	setInterval(function(){ switchBun(); },200);
+	console.log(bool);
+};
+
+
+var animate = function() {
+	// console.log("animate");
+	bunnyGo();
+	window.requestAnimationFrame(animate);
+};
+
+
+window.addEventListener('load', init);
+
+
+</script>
+</html>

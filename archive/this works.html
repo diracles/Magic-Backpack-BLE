@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<body>
+
+<div class="container">
+<canvas id="bunny" style="border:1px solid #FFF;"></canvas>
+
+</div>
+
+
+<!-- 	
+<img src="http://stateofrelationships.com/wp-content/uploads/2014/04/forest-for-macbook-15-inch.png" alt="background"/> -->
+
+
+	<input type="text" onkeydown="animate()">
+	
+
+
+</body>
+
+<script>
+
+
+var images = [];
+var imageObj = 0;
+
+var init = function() {
+	console.log("init");
+
+	for(var i = 1; i < 3; i++){
+		imageObj = new Image();
+		imageObj.src = "img/"+i+".png";
+		images.push(imageObj);
+		console.log(imageObj);
+		console.log(images);
+
+		}	
+
+		// return imageObj;
+	
+};
+
+
+
+
+var bunnyGo = function(){
+	
+	console.log("bunnyGo");
+	var mycanvas = document.getElementById('bunny');
+	var ctx = mycanvas.getContext('2d');
+	mycanvas.width = 1280;
+	mycanvas.height = 747;
+	ctx.clearRect(0,0,mycanvas.width, mycanvas.height);
+
+//moving bunny accross the screen
+	// var intA = 0;
+	// var intB = mycanvas.width;
+	// direction = false;
+
+//oscillating between the 2 bunny imgs based of a time interval
+
+	
+	// var img;
+	// for(var i=0; i < images.length; i++){
+	// 	img = interval.length-1;		
+	// }
+
+	ctx.drawImage(imageObj, 0, 0);
+
+
+	// $(document).ready(function() {
+    
+ //    function bunnyLeft() {
+ //        $("#bunny").animate({left: "-=300"}, 1500, "swing", bunnyRight);
+ //    }
+ //    function bunnyRight() {
+ //        $("#bunny").animate({left: "+=300"}, 1500, "swing", bunnyLeft);
+ //    }
+    
+ //    bunnyRight();
+// });
+	
+
+
+};
+
+var animate = function() {
+	console.log("animate");
+	bunnyGo();
+	window.requestAnimationFrame(animate);
+};
+
+
+
+window.addEventListener('load', init);
+
+
+</script>
+
+
+</html>
