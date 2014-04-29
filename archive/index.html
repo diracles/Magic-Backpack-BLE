@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<body>
+
+<div class="container">
+<canvas id="bunny" style="border:1px solid #FFF;"></canvas>
+
+<audio id="myaudio">
+  <source src="http://stateofrelationships.com/wp-content/uploads/2014/04/owl.wav" type="audio/wav">
+</audio>
+
+<!-- <input type = "text" onkeypress = "toggleControls();" > -->
+
+</div>
+
+<body onkeypress="audioBun(event)">
+
+<!-- 	
+<img src="http://stateofrelationships.com/wp-content/uploads/2014/04/forest-for-macbook-15-inch.png" alt="background"/> -->
+
+</body>
+
+<script>
+
+// var audio = document.getElementById("myaudio");
+
+var event = new Event("audioGo");
+
+event.which=0;
+
+function audioBun(event) {
+
+var key = (event) ? event.which : event.keyCode;
+if (String.fromCharCode(key)=="g"){
+
+	document.getElementById('myaudio').play();
+	console.log("Im in the audio function");
+
+}
+else if (String.fromCharCode(key)=="h"){
+
+	document.getElementById('myaudio').pause();
+	console.log("Im in the audio function");
+
+}
+
+}
+
+
+// function toggleControls(){
+// 	if(audio.hasAttribute("controls")){
+// 		audio.removeAttribute("controls")
+// 	} else {
+// 		audio.setAttribute("controls", "controls")
+// 	}	
+// }
+
+
+var images = [];
+var imageObj = 0;
+
+var init = function() {
+	console.log("init");
+
+	for(var i = 1; i < 3; i++){
+		imageObj = new Image();
+		imageObj.src = "img/"+i+".png";
+		images.push(imageObj);
+		console.log(imageObj);
+		console.log(images);
+
+		}		
+	
+};
+
+var bool = false;
+
+window.onclick = function() {
+
+	var img;
+	var xpos = 1200;
+	var ypos = 500;
+
+	function switchBun(){
+		bool = !bool;
+
+		var mycanvas = document.getElementById('bunny');
+		var ctx = mycanvas.getContext('2d');
+		mycanvas.width = 1280;
+		mycanvas.height = 747;
+		ctx.clearRect(0,0,mycanvas.width, mycanvas.height);
+
+
+		for(var i=0; i < images.length; i++){
+
+			if (bool == false){
+				img = 0;
+				xpos += -10;		
+			}
+			else if (bool == true){
+				img = 1;
+				xpos += -10;
+			}	
+		}
+
+		ctx.drawImage(images[img], xpos, ypos);
+	}
+
+	setInterval(function(){ switchBun(); },200);
+	console.log(bool);
+};
+
+
+var animate = function() {
+	// console.log("animate");
+	bunnyGo();
+	window.requestAnimationFrame(animate);
+};
+
+
+window.addEventListener('load', init);
+
+
+</script>
+</html>
