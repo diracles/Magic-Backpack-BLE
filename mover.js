@@ -1,19 +1,7 @@
-
-
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
-
-
-  // var xpos = 200;
-  // var ypos = 300;
-
-
-
 function Mover() {
   this.position = new PVector(width/2,height/2);
   this.velocity = new PVector();
-  this.acceleration = new PVector(-0.001, 0.01);
+  this.acceleration = new PVector(-0.01, 0);
   this.topspeed = 1;  
 }
 
@@ -26,7 +14,7 @@ Mover.prototype.update = function() {
 Mover.prototype.display = function() {
     translate(this.position.x, this.position.y);
     imageMode(CENTER);
-    image(img2, 200, 200);
+    image(img2, 100, 200);
     console.log("img2");
 
 
