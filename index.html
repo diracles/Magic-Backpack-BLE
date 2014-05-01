@@ -7,6 +7,8 @@
 
 
 
+
+
 	 <script language="javascript" type="text/javascript" src="buzz.js"></script>
 
 	  <!-- Sketch -->	
@@ -20,6 +22,12 @@
   
   	<canvas id="bunny" style="border:1px solid #FFF;"></canvas>
 
+
+
+<audio id="myaudio">
+  <source src="http://stateofrelationships.com/wp-content/uploads/2014/05/coyote.ogg" type="audio/wav">
+</audio>
+
 <!--   	<div id="cf">
   <img class="bottom" src="img/desert_night.png" />
   <img class="top" src="img/desert_day.png" />
@@ -32,7 +40,7 @@
 
 </head>
 
-<body onload="setup();">
+<body onload="setup();" onkeypress="audioBun(event)">
 
 <!-- <img src="img/ant.png" alt="background"/>  -->
 
