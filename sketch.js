@@ -18,7 +18,7 @@ var backdrop2;
 var color;
 var ctx;
 var img;
-  var alphaVariable = 1;
+var alphaVariable = 1;
 
 var radius=60;
 var smoothAmount;
@@ -48,7 +48,11 @@ else if (String.fromCharCode(key)=="h"){
 }
 
 
-
+var compositeTypes = [
+  'source-over','source-in','source-out','source-atop',
+  'destination-over','destination-in','destination-out',
+  'destination-atop','lighter','darker','copy','xor'
+];
 
 
 function setup() {
@@ -83,11 +87,13 @@ function setup() {
 function draw() {
 
   context(canvas);
+  rect(0,0, width, height);
+
   imageMode(CENTER);
   //image(backdrop2, 400, 400, width, height);
   //tint(255,126);
   fill(0,alphaVariable); 
-  rect(0,0, width, height);
+  
 
   image(backdrop, 400, 400, width, height);
   image(img2, 1231, 748);
