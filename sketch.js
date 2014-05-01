@@ -130,6 +130,7 @@ function uniShow(){
 
 function mousePressed(){
   uniHide();
+    alphaVariable+=1;
 
   // backdrop.tint(0, 153, 204, 126);
   background(200);
@@ -142,7 +143,7 @@ function keyPressed() {
   console.log("key is pressed");
   // tint();
   console.log("tint is here");
-  alphaVariable+=1;
+
 
 
 
